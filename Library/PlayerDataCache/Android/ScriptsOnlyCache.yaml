@@ -108,15 +108,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14236}
     - Class: 114
-      Script: {instanceID: 15176}
+      Script: {instanceID: 15154}
     - Class: 114
-      Script: {instanceID: 15404}
+      Script: {instanceID: 15382}
     - Class: 114
-      Script: {instanceID: 15410}
+      Script: {instanceID: 15388}
     - Class: 114
-      Script: {instanceID: 15978}
+      Script: {instanceID: 15956}
     - Class: 114
-      Script: {instanceID: 16562}
+      Script: {instanceID: 16540}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -621,4 +621,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: C:/Unity/TowerSaver/TowerSaver/Build/v1.apk
+  playerPath: C:/Unity/TowerSaver/TowerSaver/Build/v1.0a.apk
