@@ -5,7 +5,7 @@ using UnityEngine;
 public class CurrentWeight : MonoBehaviour
 {
     public float weight;
-    [SerializeField] private int i;
+    [SerializeField] public int i;
     [SerializeField] private GameLogic gameLogic;
     [SerializeField] private bool isChibi;
 

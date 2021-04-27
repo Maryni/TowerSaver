@@ -33,6 +33,11 @@ public class GameLogic : MonoBehaviour
             platformController.MovePlatform_Up(0);
             animController.SetMovingTrue();
         }
+        if(platf_L==platf_R)
+        {
+            platformController.PlatformsHaveOneWeight();
+            animController.SetMovingTrue();
+        }
     }
 
     private void SetWeight()
@@ -45,8 +50,8 @@ public class GameLogic : MonoBehaviour
         }  
     }
 
-    public void SetPlatfWeight_L(float value) { platf_L += value; }
-    public void SetPlatfWeight_R(float value) { platf_R += value; }
+    public void SetPlatfWeight_L(float value) { platf_L = value; platformController.SetLeftText(platf_L); }
+    public void SetPlatfWeight_R(float value) { platf_R = value; platformController.SetRightText(platf_R); }
     public void PlatformLoseWeight_L(float value) { platf_L -= value; }
     public void PlatformLoseWeight_R(float value) { platf_R -= value; }
 }

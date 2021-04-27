@@ -11,6 +11,7 @@ public class PlatformController : MonoBehaviour
     [SerializeField] private RectTransform textR;
     [SerializeField] private Text textFieldL;
     [SerializeField] private Text textFieldR;
+    [SerializeField] private List<BoxCollider> listWeightBC;
 
     private void MovePlatformUp(Transform platf)
     {
@@ -28,22 +29,22 @@ public class PlatformController : MonoBehaviour
         }
     }
 
-    public void MovePlatform_Up(int i) 
-    { 
-        if (i == 0) 
-        { 
+    public void MovePlatform_Up(int i)
+    {
+        if (i == 0)
+        {
             MovePlatformUp(platformR);
             MoveRight(0);
             MovePlatformDown(platformL);
             MoveLeft(1);
-        } else { 
+        } else {
             MovePlatformUp(platformL);
-            MoveLeft(0);           
+            MoveLeft(0);
             MovePlatformDown(platformR);
             MoveRight(1);
-        } 
-    } 
-    
+        }
+    }
+
     //0 = platformL | 1 = platformR
 
 
@@ -53,21 +54,21 @@ public class PlatformController : MonoBehaviour
     /// <param name="i"></param>
     private void MoveLeft(int i) //0 = up, 1 = down
     {
-        if(i ==0)
+        if (i == 0)
         {
-           // while (textL.transform.position.y <= 274f)
-           // {
-                textL.localPosition = new Vector2(textL.localPosition.x, 274);
-           // }
+            // while (textL.transform.position.y <= 274f)
+            // {
+            textL.localPosition = new Vector2(textL.localPosition.x, 274);
+            // }
         }
-        if(i==1)
+        if (i == 1)
         {
-           // while (textL.transform.position.y >= -490f)
-           // {
-                textL.localPosition = new Vector2(textL.localPosition.x, -490);
-           // }
+            // while (textL.transform.position.y >= -490f)
+            // {
+            textL.localPosition = new Vector2(textL.localPosition.x, -490);
+            // }
         }
-        
+
     }
     /// <summary>
     /// //0 = up, 1 = down
@@ -77,21 +78,35 @@ public class PlatformController : MonoBehaviour
     {
         if (i == 0)
         {
-            
-                textR.localPosition = new Vector2(textR.localPosition.x, 274);
-            
+
+            textR.localPosition = new Vector2(textR.localPosition.x, 274);
+
         }
-        if(i==1)
+        if (i == 1)
         {
-           // while (textR.transform.position.y >= -490f)
-           // {
-                textR.localPosition = new Vector2(textR.localPosition.x, -490);
-           // }
+            // while (textR.transform.position.y >= -490f)
+            // {
+            textR.localPosition = new Vector2(textR.localPosition.x, -490);
+            // }
         }
     }
+    public void PlatformsHaveOneWeight()
+    {
+        platformL.position = new Vector3(platformL.position.x, 0.75f, platformL.position.z);
+        platformR.position = new Vector3(platformR.position.x, 0.75f, platformR.position.z);
+        textL.localPosition = new Vector2(textL.localPosition.x, -45);
+        textR.localPosition = new Vector2(textR.localPosition.x, -45);
+    }
 
-    public void SetLeftText(float value) { textFieldL.text = value.ToString(); }
-    public void SetRightText(float value) { textFieldR.text = value.ToString(); }
+    public void SetLeftText(float value) 
+    { 
+        textFieldL.text = (int.Parse(textFieldL.text) + value ).ToString(); 
+        listWeightBC[0].enabled = false; 
+        listWeightBC[1].enabled = false; 
+        listWeightBC[2].enabled = false; 
+        listWeightBC[3].enabled = false; 
+    }
+    public void SetRightText(float value) { textFieldR.text = (int.Parse(textFieldR.text) + value).ToString(); }
 
     //up 1.75 (to 2.5)
     //dowm  to -2.55

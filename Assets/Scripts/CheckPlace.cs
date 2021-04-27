@@ -9,19 +9,20 @@ public class CheckPlace : MonoBehaviour
     [SerializeField] private CurrentWeight currentWeight;
     [SerializeField] private CorrectingWeight correctingWeight;
     [SerializeField] private PlatformController platformController;
+    private int i;
     private void OnTriggerEnter(Collider other)
     {
+
         if(other.tag == "Weight")
         {
             correctingWeight = other.gameObject.GetComponent<CorrectingWeight>();
             currentWeight = other.gameObject.GetComponent<CurrentWeight>();
 
-
             if (!isPlatformL) 
             { 
                 gameLogic.SetPlatfWeight_R(currentWeight.weight); 
                 platformController.SetRightText(currentWeight.weight); 
-            }
+                }
             if (isPlatformL)
             {
                 gameLogic.SetPlatfWeight_L(currentWeight.weight);
